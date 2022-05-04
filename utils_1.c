@@ -6,7 +6,7 @@
 /*   By: rmerzak <rmerzak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 14:52:35 by rmerzak           #+#    #+#             */
-/*   Updated: 2022/05/04 20:17:27 by rmerzak          ###   ########.fr       */
+/*   Updated: 2022/05/04 20:20:32 by rmerzak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int ft_initialise_mutex(t_data *data)
 	return (0);
 }
 
-void	ft_initialise(t_data *data,t_philosopher *philo, char **argv, int argc)
+int	ft_initialise(t_data *data,t_philosopher *philo, char **argv, int argc)
 {
     data->nbrOfPhilo = ft_atoi(argv[1]);
 	data->time_to_die = ft_atoi(argv[2]);
@@ -113,7 +113,7 @@ void	ft_initialise(t_data *data,t_philosopher *philo, char **argv, int argc)
 	data->die = 0;
 	data->eat_or_not = 0;
 	data->beginning_time = 0;
+	
 	if (!ft_initialise_mutex(data))
 		ft_erreur(2);	
-	
 }

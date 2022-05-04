@@ -6,7 +6,7 @@
 /*   By: rmerzak <rmerzak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 19:52:26 by rmerzak           #+#    #+#             */
-/*   Updated: 2022/05/04 19:52:28 by rmerzak          ###   ########.fr       */
+/*   Updated: 2022/05/04 20:20:51 by rmerzak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int		ft_atoi(const char *str);
 int		ft_check_argument(int argc, char **argv);
 void	ft_erreur(int a);
 int		ft_check_digits(char *str);
-void	ft_initialise(t_data *data, t_philosopher *philo, char **argv, int argc);
+int		ft_initialise(t_data *data, t_philosopher *philo, char **argv, int argc);
 
 
 #endif 
