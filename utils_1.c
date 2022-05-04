@@ -6,7 +6,7 @@
 /*   By: rmerzak <rmerzak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 14:52:35 by rmerzak           #+#    #+#             */
-/*   Updated: 2022/05/04 16:09:00 by rmerzak          ###   ########.fr       */
+/*   Updated: 2022/05/04 20:17:27 by rmerzak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,41 @@ int ft_check_argument(int argc, char **argv)
         i++;
     }
     return (0);
+}
+
+int ft_initialise_mutex(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	if (pthread_mutex_init(data->eating, NULL) != 0)
+		return (1);
+	if (pthread_mutex_init(data->printing, NULL) != 0)
+		return (1);
+	data->forks = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * (data->nbrOfPhilo + 1));
+	if (data->forks == NULL)
+		return (1);
+	while (i <= data->nbrOfPhilo)
+	{
+		if (pthread_mutex_init(data->forks[i], NULL) != 0)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+void	ft_initialise(t_data *data,t_philosopher *philo, char **argv, int argc)
+{
+    data->nbrOfPhilo = ft_atoi(argv[1]);
+	data->time_to_die = ft_atoi(argv[2]);
+	data->time_to_eat = ft_atoi(argv[3]);
+	data->time_to_sleep = ft_atoi(argv[4]);
+	if (argc == 6)
+		data->number_of_times_each_philosopher_must_eat = ft_atoi(argv[5]);
+	data->die = 0;
+	data->eat_or_not = 0;
+	data->beginning_time = 0;
+	if (!ft_initialise_mutex(data))
+		ft_erreur(2);	
+	
 }
