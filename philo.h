@@ -6,7 +6,7 @@
 /*   By: rmerzak <rmerzak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 19:52:26 by rmerzak           #+#    #+#             */
-/*   Updated: 2022/05/04 20:20:51 by rmerzak          ###   ########.fr       */
+/*   Updated: 2022/05/06 15:05:00 by rmerzak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ typedef struct s_philosopher
 	int			right_Fork;
 	int			indexOfPhilo;
 	int			nbEat;
-	struct t_data		*data;
+	long long	check_die_time;
+	struct s_data		*data;
 } t_philosopher;
 
 typedef struct s_data
@@ -53,6 +54,6 @@ int		ft_check_argument(int argc, char **argv);
 void	ft_erreur(int a);
 int		ft_check_digits(char *str);
 int		ft_initialise(t_data *data, t_philosopher *philo, char **argv, int argc);
-
+int		ft_initialise_philo(t_data *data);
 
 #endif 
