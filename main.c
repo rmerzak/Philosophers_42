@@ -6,7 +6,7 @@
 /*   By: rmerzak <rmerzak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 14:52:30 by rmerzak           #+#    #+#             */
-/*   Updated: 2022/05/06 18:28:37 by rmerzak          ###   ########.fr       */
+/*   Updated: 2022/05/06 20:25:08 by rmerzak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(int argc,char **argv)
     data = (t_data *)malloc(sizeof(t_data));
     if (ft_check_argument(argc, argv) == 1 || ft_initialise(data, argv, argc) == 1)
         return (0);
-	ft_run_philo(data)
+	ft_run_philo(data,data->philo);
     
     
     

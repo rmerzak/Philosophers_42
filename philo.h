@@ -6,7 +6,7 @@
 /*   By: rmerzak <rmerzak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 19:52:26 by rmerzak           #+#    #+#             */
-/*   Updated: 2022/05/06 15:35:46 by rmerzak          ###   ########.fr       */
+/*   Updated: 2022/05/06 20:25:47 by rmerzak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <pthread.h>
 # include <unistd.h>
 # include <stdlib.h>
-
+# include <sys/time.h>
 
 
 
@@ -55,5 +55,6 @@ void	ft_erreur(int a);
 int		ft_check_digits(char *str);
 int		ft_initialise(t_data *data, char **argv, int argc);
 int		ft_initialise_philo(t_data *data);
+int		ft_run_philo(t_data *data, t_philosopher *philo);
 
 #endif 
