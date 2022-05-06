@@ -6,7 +6,7 @@
 /*   By: rmerzak <rmerzak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 14:52:37 by rmerzak           #+#    #+#             */
-/*   Updated: 2022/05/06 14:14:39 by rmerzak          ###   ########.fr       */
+/*   Updated: 2022/05/06 15:55:38 by rmerzak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ int		ft_check_digits(char *str)
 int ft_check_argument(int argc, char **argv)
 {
     int     i;
-
     i = 1;
     if (argc != 5 && argc != 6)
         return (1);
