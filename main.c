@@ -6,7 +6,7 @@
 /*   By: rmerzak <rmerzak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 14:52:30 by rmerzak           #+#    #+#             */
-/*   Updated: 2022/05/06 20:25:08 by rmerzak          ###   ########.fr       */
+/*   Updated: 2022/05/06 20:45:11 by rmerzak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,19 @@ int main(int argc,char **argv)
     
     
     
-    
-    // int i = 0;
-	// while(i < data->nbrOfPhilo)
-	// {
-	// 	printf(
-	// 		"%d %d %d %d %lld\n",
-	// 	data->philo[i].indexOfPhilo,
-	// 	data->philo[i].left_Fork,
-	// 	data->philo[i].right_Fork,
-	// 	data->philo[i].nbEat,
-	// 	data->philo[i].check_die_time
-	// 	);
-	// 	i++;
+    int i = 0;
+	while(i < data->nbrOfPhilo)
+	{
+		printf(
+			"%d %d %d %d %lld\n",
+		data->philo[i].indexOfPhilo,
+		data->philo[i].left_Fork,
+		data->philo[i].right_Fork,
+		data->philo[i].nbEat,
+		data->philo[i].check_die_time
+		);
+		i++;
 		
-	// }
+	}
     return (1);
 }
