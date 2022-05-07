@@ -6,7 +6,7 @@
 /*   By: rmerzak <rmerzak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 14:52:40 by rmerzak           #+#    #+#             */
-/*   Updated: 2022/05/06 20:51:20 by rmerzak          ###   ########.fr       */
+/*   Updated: 2022/05/07 15:15:16 by rmerzak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void *ft_routine(void *philo)
 {
-    (void )philo;
-    printf("hello from ft_routine\n");
+    t_philosopher *copy;
+    copy = (t_philosopher *)philo;
+    printf("hello from ft_routine number %d \n",copy->indexOfPhilo);
     return (void *)0;
 }
 
@@ -32,13 +33,13 @@ int		ft_run_philo(t_data *data, t_philosopher *philo)
     {
         printf("%d\n",data->nbrOfPhilo);
         data->philo[i].check_die_time = (time.tv_sec * 1000 + time.tv_usec / 1000);
-        pthread_create(&data->philo[i].threadPhiloId, NULL, ft_routine, (void*)(&philo[i]));
+        pthread_create(&data->philo[i].threadPhiloId, NULL, ft_routine, (void *)(&philo[i]));
         i++;
     }
-    while (i < data->nbrOfPhilo)
-    {
-        pthread_join();
-        i++;
-    }
+    // while (i < data->nbrOfPhilo)
+    // {
+    //     pthread_join();
+    //     i++;
+    // }
     return (0);
 }
