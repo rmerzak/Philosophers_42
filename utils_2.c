@@ -6,7 +6,7 @@
 /*   By: rmerzak <rmerzak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 14:52:37 by rmerzak           #+#    #+#             */
-/*   Updated: 2022/05/06 15:55:38 by rmerzak          ###   ########.fr       */
+/*   Updated: 2022/05/07 21:03:38 by rmerzak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,11 @@ int ft_check_argument(int argc, char **argv)
         i++;
     }
     return (0);
+}
+
+long long ft_time()
+{
+	struct timeval  time;
+	gettimeofday(&time, NULL);
+	return ((time.tv_sec * 1000 + time.tv_usec / 1000));
 }

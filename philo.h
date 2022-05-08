@@ -6,7 +6,7 @@
 /*   By: rmerzak <rmerzak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 19:52:26 by rmerzak           #+#    #+#             */
-/*   Updated: 2022/05/07 15:11:06 by rmerzak          ###   ########.fr       */
+/*   Updated: 2022/05/08 18:29:31 by rmerzak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,20 @@ typedef struct s_data
 	pthread_mutex_t	printing;
 	t_philosopher	*philo;
 } t_data;
-int		ft_isdigit(int c);
-int		ft_atoi(const char *str);
-int		ft_check_argument(int argc, char **argv);
-void	ft_erreur(int a);
-int		ft_check_digits(char *str);
-int		ft_initialise(t_data *data, char **argv, int argc);
-int		ft_initialise_philo(t_data *data);
-int		ft_run_philo(t_data *data, t_philosopher *philo);
-void	*ft_routine(void *philo);
+int			ft_isdigit(int c);
+int			ft_atoi(const char *str);
+int			ft_check_argument(int argc, char **argv);
+void		ft_erreur(int a);
+int			ft_check_digits(char *str);
+int			ft_initialise(t_data *data, char **argv, int argc);
+int			ft_initialise_philo(t_data *data);
+int			ft_run_philo(t_data *data, t_philosopher *philo);
+void		*ft_routine(void *philo);
+void		ft_print(t_data *data, char *str, int indexOfPhilo);
+void		ft_start_eating(t_data *data, t_philosopher *philo);
+void		ft_death(t_data *data, t_philosopher *philo);
+long long	ft_time();
+void		ft_check_eat(t_data *data, t_philosopher *philo);
+void		ft_end(t_data *data, t_philosopher *philo);
 
 #endif 

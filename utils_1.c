@@ -6,7 +6,7 @@
 /*   By: rmerzak <rmerzak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 14:52:35 by rmerzak           #+#    #+#             */
-/*   Updated: 2022/05/06 16:29:08 by rmerzak          ###   ########.fr       */
+/*   Updated: 2022/05/07 20:02:32 by rmerzak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ int ft_initialise_mutex(t_data *data)
 	int	i;
 
 	i = 0;
-	if (pthread_mutex_init(&data->eating, NULL) != 0)
+	if (pthread_mutex_init(&(data->eating), NULL))
 		return (1);
-	if (pthread_mutex_init(&data->printing, NULL) != 0)
+	if (pthread_mutex_init(&(data->printing), NULL))
 		return (1);
-	data->forks = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * (data->nbrOfPhilo + 1));
+	data->forks = malloc(sizeof(pthread_mutex_t) * (data->nbrOfPhilo));
 	if (data->forks == NULL)
 		return (1);
-	while (i <= data->nbrOfPhilo)
+	while (i < data->nbrOfPhilo)
 	{
-		if (pthread_mutex_init(&data->forks[i], NULL) != 0)
+		if (pthread_mutex_init(&(data->forks[i]), NULL))
 			return (1);
 		i++;
 	}
@@ -65,7 +65,7 @@ int	ft_initialise(t_data *data, char **argv, int argc)
 	data->eat_or_not = 0;
 	data->beginning_time = 0;
 
-	if (ft_initialise_mutex(data) == 1 || ft_initialise_philo(data) == 1)
+	if (ft_initialise_mutex(data) || ft_initialise_philo(data))
 		return (1);
 	return (0);
 }
