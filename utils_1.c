@@ -6,13 +6,13 @@
 /*   By: rmerzak <rmerzak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 14:52:35 by rmerzak           #+#    #+#             */
-/*   Updated: 2022/05/07 20:02:32 by rmerzak          ###   ########.fr       */
+/*   Updated: 2022/05/20 17:11:44 by rmerzak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int ft_initialise_mutex(t_data *data)
+int	ft_initialise_mutex(t_data *data)
 {
 	int	i;
 
@@ -32,9 +32,10 @@ int ft_initialise_mutex(t_data *data)
 	}
 	return (0);
 }
-int		ft_initialise_philo(t_data *data)
+
+int	ft_initialise_philo(t_data *data)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	data->philo = malloc(sizeof(t_data) * data->nbrOfPhilo);
@@ -51,11 +52,11 @@ int		ft_initialise_philo(t_data *data)
 		i++;
 	}
 	return (0);
-		
 }
+
 int	ft_initialise(t_data *data, char **argv, int argc)
 {
-    data->nbrOfPhilo = ft_atoi(argv[1]);
+	data->nbrOfPhilo = ft_atoi(argv[1]);
 	data->time_to_die = ft_atoi(argv[2]);
 	data->time_to_eat = ft_atoi(argv[3]);
 	data->time_to_sleep = ft_atoi(argv[4]);
@@ -64,7 +65,6 @@ int	ft_initialise(t_data *data, char **argv, int argc)
 	data->die = 0;
 	data->eat_or_not = 0;
 	data->beginning_time = 0;
-
 	if (ft_initialise_mutex(data) || ft_initialise_philo(data))
 		return (1);
 	return (0);

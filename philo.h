@@ -6,7 +6,7 @@
 /*   By: rmerzak <rmerzak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 19:52:26 by rmerzak           #+#    #+#             */
-/*   Updated: 2022/05/08 18:29:31 by rmerzak          ###   ########.fr       */
+/*   Updated: 2022/05/18 20:29:11 by rmerzak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_philosopher
 	int			indexOfPhilo;
 	int			nbEat;
 	long long	check_die_time;
-	struct s_data		*data;
+	struct s_data	*data;
 } t_philosopher;
 
 typedef struct s_data
@@ -58,6 +58,9 @@ int			ft_initialise_philo(t_data *data);
 int			ft_run_philo(t_data *data, t_philosopher *philo);
 void		*ft_routine(void *philo);
 void		ft_print(t_data *data, char *str, int indexOfPhilo);
+void		ft_putnbr_fd(int n, int fd);
+void		ft_putstr_fd(char *s, int fd);
+void		ft_putchar_fd(char c, int fd);
 void		ft_start_eating(t_data *data, t_philosopher *philo);
 void		ft_death(t_data *data, t_philosopher *philo);
 long long	ft_time();
