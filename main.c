@@ -6,33 +6,36 @@
 /*   By: rmerzak <rmerzak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 14:52:30 by rmerzak           #+#    #+#             */
-/*   Updated: 2022/05/17 16:15:14 by rmerzak          ###   ########.fr       */
+/*   Updated: 2022/05/21 14:33:18 by rmerzak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h" 
+#include "philo.h"
 
-int main(int argc,char **argv) 
+void	ft_free(t_data *data)
 {
-    t_data          *data;
-    
-    data = (t_data *)malloc(sizeof(t_data));
-    if (ft_check_argument(argc, argv) == 1 || ft_initialise(data, argv, argc) == 1)
-        return (0);
-	ft_run_philo(data,data->philo);
-    // int i = 0;
-	// while(i < data->nbrOfPhilo)
-	// {
-	// 	printf(
-	// 		"%d %d %d %d %lld\n",
-	// 	data->philo[i].indexOfPhilo,
-	// 	data->philo[i].left_Fork,
-	// 	data->philo[i].right_Fork,
-	// 	data->philo[i].nbEat,
-	// 	data->philo[i].check_die_time
-	// 	);
-	// 	i++;
-		
-	// }
-    return (1);
+	if (!data->philo)
+		free(data->philo);
+	if (!data->forks)
+		free(data->forks);
+	free(data);
+}
+
+int	main(int argc, char **argv)
+{
+	t_data	*data;
+
+	data = (t_data *)malloc(sizeof(t_data));
+	if (!data)
+		return (0);
+	if (ft_check_argument(argc, argv) == 1 \
+			|| ft_initialise(data, argv, argc) == 1)
+	{
+		ft_free(data);
+		printf("erreur\n");
+		return (1);
+	}
+	ft_run_philo(data, data->philo);
+	ft_free(data);
+	return (0);
 }

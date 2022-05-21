@@ -1,24 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_2.c                                          :+:      :+:    :+:   */
+/*   lib.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmerzak <rmerzak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 14:52:37 by rmerzak           #+#    #+#             */
-/*   Updated: 2022/05/20 17:27:03 by rmerzak          ###   ########.fr       */
+/*   Updated: 2022/05/20 23:18:06 by rmerzak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-void	ft_erreur(int a)
-{
-	if (a == 1)
-		printf("Argument non valid\n");
-	if (a == 2)
-		printf("Thread not initialised\n");
-}
 
 int	ft_atoi(const char *str)
 {
@@ -87,49 +79,6 @@ int	ft_check_argument(int argc, char **argv)
 		i++;
 	}
 	return (0);
-}
-
-void	ft_putnbr_fd(int n, int fd)
-{
-	char	c;
-	long	nb;
-
-	nb = n;
-	if (nb < 0)
-	{
-		write (fd, "-", 1);
-		nb = -1 * nb;
-	}
-	if (nb >= 0 && nb <= 9)
-	{
-		c = nb + 48;
-		write(fd, &c, 1);
-	}
-	else
-	{
-		ft_putnbr_fd(nb / 10, fd);
-		ft_putnbr_fd(nb % 10, fd);
-	}
-}
-
-void	ft_putstr_fd(char *s, int fd)
-{
-	int	i;
-
-	i = 0;
-	if (s)
-	{
-		while (s[i] != '\0')
-		{
-			write(fd, &s[i], 1);
-			i++;
-		}
-	}
-}
-
-void	ft_putchar_fd(char c, int fd)
-{
-	write(fd, &c, 1);
 }
 
 long long	ft_time(void)

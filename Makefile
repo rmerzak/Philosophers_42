@@ -6,7 +6,7 @@
 #    By: rmerzak <rmerzak@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 19:37:20 by rmerzak           #+#    #+#              #
-#    Updated: 2022/05/04 15:11:56 by rmerzak          ###   ########.fr        #
+#    Updated: 2022/05/20 21:51:58 by rmerzak          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,11 @@ CFLAGS = -Wall -Werror -Wextra
 HEADER = philo.h
 
 SRC = ./main.c\
-	  ./utils_1.c\
-	  ./utils_2.c\
-	  ./utils_3.c\
+	  ./initialisation.c\
+	  ./lib.c\
+	  ./routine.c\
+	  ./run_philo.c\
+	  ./file.c\
 
 OBJ = $(SRC:.c=.o)
 
