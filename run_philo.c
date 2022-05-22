@@ -6,7 +6,7 @@
 /*   By: rmerzak <rmerzak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 22:08:13 by rmerzak           #+#    #+#             */
-/*   Updated: 2022/05/21 14:29:25 by rmerzak          ###   ########.fr       */
+/*   Updated: 2022/05/21 21:23:05 by rmerzak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_check_eat(t_data *data, t_philosopher *philo)
 
 	i = 0;
 	while (data->number_of_times > 0 && \
-			i < data->nbrofphilo && philo[i].nbeat > data->number_of_times)
+			i < data->nbrofphilo && philo[i].nbeat >= data->number_of_times)
 		i++;
 	if (i == data->nbrofphilo)
 		data->eat_or_not = 1;
@@ -46,7 +46,7 @@ void	ft_death(t_data *data, t_philosopher *philo)
 			break ;
 		if (data->number_of_times > 0)
 			ft_check_eat(data, data->philo);
-		usleep(1000);
+		usleep(100);
 	}
 }
 

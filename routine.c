@@ -6,7 +6,7 @@
 /*   By: rmerzak <rmerzak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 14:52:40 by rmerzak           #+#    #+#             */
-/*   Updated: 2022/05/21 14:31:03 by rmerzak          ###   ########.fr       */
+/*   Updated: 2022/05/22 15:16:07 by rmerzak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,16 @@ void	ft_print(t_data *data, char *str, int indexOfPhilo)
 
 void	ft_start_eating(t_data *data, t_philosopher *philo)
 {
+	long	start;
+
 	pthread_mutex_lock(&(data->eating));
 	ft_print(data, "is eating ", philo->indexofphilo);
 	philo->check_die_time = ft_time();
 	pthread_mutex_unlock(&(data->eating));
 	(philo->nbeat)++;
-	usleep(data->time_to_eat * 1000);
+	start = ft_time();
+	while (ft_time() - start < data->time_to_eat)
+		usleep(100);
 }
 
 int	ft_take_fork(t_data *data, t_philosopher *philo)
@@ -55,6 +59,7 @@ void	*ft_routine(void *philo)
 {
 	t_philosopher	*copy;
 	t_data			*data;
+	long			start;
 
 	copy = (t_philosopher *)philo;
 	data = copy->data;
@@ -65,13 +70,15 @@ void	*ft_routine(void *philo)
 		return (NULL);
 	}
 	if (copy->indexofphilo % 2)
-		usleep(1000);
+		usleep(1500);
 	while (!data->die)
 	{
 		if (ft_take_fork(data, copy))
 			break ;
 		ft_print(data, "sleeping ", copy->indexofphilo);
-		usleep(data->time_to_sleep * 1000);
+		start = ft_time();
+		while (ft_time() - start < data->time_to_sleep)
+			usleep(100);
 		ft_print(data, "thinking ", copy->indexofphilo);
 	}
 	return ((void *)0);
