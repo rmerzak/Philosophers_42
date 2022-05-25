@@ -6,7 +6,7 @@
 /*   By: rmerzak <rmerzak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 14:52:35 by rmerzak           #+#    #+#             */
-/*   Updated: 2022/05/21 14:32:44 by rmerzak          ###   ########.fr       */
+/*   Updated: 2022/05/22 21:23:17 by rmerzak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,11 @@ int	ft_initialise(t_data *data, char **argv, int argc)
 	data->time_to_eat = ft_atoi(argv[3]);
 	data->time_to_sleep = ft_atoi(argv[4]);
 	if (argc == 6)
+	{
 		data->number_of_times = ft_atoi(argv[5]);
+		if (data->number_of_times == 0)
+			return (1);
+	}
 	data->die = 0;
 	data->eat_or_not = 0;
 	data->beginning_time = 0;

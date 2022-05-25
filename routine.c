@@ -6,7 +6,7 @@
 /*   By: rmerzak <rmerzak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 14:52:40 by rmerzak           #+#    #+#             */
-/*   Updated: 2022/05/22 15:16:07 by rmerzak          ###   ########.fr       */
+/*   Updated: 2022/05/22 21:01:08 by rmerzak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	*ft_routine(void *philo)
 		return (NULL);
 	}
 	if (copy->indexofphilo % 2)
-		usleep(1500);
+		usleep(500);
 	while (!data->die)
 	{
 		if (ft_take_fork(data, copy))

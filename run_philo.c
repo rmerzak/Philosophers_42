@@ -6,7 +6,7 @@
 /*   By: rmerzak <rmerzak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 22:08:13 by rmerzak           #+#    #+#             */
-/*   Updated: 2022/05/21 21:23:05 by rmerzak          ###   ########.fr       */
+/*   Updated: 2022/05/22 21:05:04 by rmerzak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	ft_check_eat(t_data *data, t_philosopher *philo)
 	int	i;
 
 	i = 0;
-	while (data->number_of_times > 0 && \
-			i < data->nbrofphilo && philo[i].nbeat >= data->number_of_times)
+	while (data->number_of_times > 0 \
+			&& i < data->nbrofphilo && philo[i].nbeat >= data->number_of_times)
 		i++;
 	if (i == data->nbrofphilo)
 		data->eat_or_not = 1;
